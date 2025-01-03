@@ -22,7 +22,10 @@ class CORSMiddleware(SimpleHTTPRequestHandler):
 def run(server_class=HTTPServer, handler_class=CORSMiddleware):
     server_address=('192.168.1.229', 8044)
     httpd = server_class(server_address, handler_class)
-    # httpd = socketserver.TCPServer(server_address, SimpleHTTPRequestHandler)
+    # socketserver.TCPServer(server_address, handler_class)
+    # ^ create a class wrapping around this.
+    # Then make it interact with the appropriate functions of this app
+    # and expose the right endpoints, resources and such and such.
     httpd.serve_forever()
 
 
